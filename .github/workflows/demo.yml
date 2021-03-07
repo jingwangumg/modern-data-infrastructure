@@ -30,7 +30,7 @@ jobs:
       - uses: marceloprado/has-changed-path@v1
         id: changed-dbt
         with:
-          paths: dbt/
+          paths: dbt
 
       # Runs a single command using the runners shell
       - name: Run DBT build script
