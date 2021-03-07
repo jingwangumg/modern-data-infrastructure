@@ -24,10 +24,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - uses: marceloprado/has-changed-path@v1
+        id: changed-dbt
+        with:
+          paths: dbt/
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run DBT build script
+        if: steps.changed-front.outputs.changed == 'true'
+        run: echo DBT changed!
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
