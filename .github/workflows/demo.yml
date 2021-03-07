@@ -34,7 +34,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run DBT build script
-        if: steps.changed-front.outputs.changed == 'true'
+        if: steps.changed-dbt.outputs.changed == 'true'
         run: echo DBT changed!
 
       # Runs a set of commands using the runners shell
